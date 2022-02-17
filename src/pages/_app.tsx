@@ -1,9 +1,10 @@
+import { SessionProvider } from "next-auth/react";
 import { AppProps } from "next/app";
 import Head from "next/head";
 
 import GlobalStyles from "../styles/GlobalStyle";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     return (
         <>
             <Head>
@@ -23,7 +24,9 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <meta name="theme-color" content="#000" />
             </Head>
             <GlobalStyles />
-            <Component {...pageProps} />
+            <SessionProvider session={session}>
+                <Component {...pageProps} />
+            </SessionProvider>
         </>
     );
 }
