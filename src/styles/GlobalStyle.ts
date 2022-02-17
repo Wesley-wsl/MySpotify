@@ -7,6 +7,10 @@ const GlobalStyles = createGlobalStyle`
     --dark-secoundary: #060606;
     --dark-green-primary: #1DB954;
     --dark-green-secoundary: #1DB95415;
+    --white-primary: #FFFFFF;
+    --white-secoundary: #f1f1f1;
+    --grey-primary: #646464;
+    --grey-secoundary: #c4c4c4;
 }
 
 
@@ -20,6 +24,10 @@ const GlobalStyles = createGlobalStyle`
 
 html {
     font-size: 62.5%;
+}
+
+ul {
+    list-style: none;
 }
 
 `;
