@@ -30,6 +30,24 @@ ul {
     list-style: none;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
+}
+
+*::-webkit-scrollbar {
+  width: 0.9rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--dark-secoundary);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--white-secoundary);
+  border-radius: 1.5rem;
+}
+
 `;
 
 export default GlobalStyles;
