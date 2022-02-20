@@ -7,9 +7,10 @@ export default NextAuth({
             clientId: process.env.SPOTIFY_CLIENT_ID as string,
             clientSecret: process.env.SPOTIFY_CLIENT_SECRET as string,
             authorization:
-                "https://accounts.spotify.com/authorize?scope=user-read-email,playlist-read-private",
+                "https://accounts.spotify.com/authorize?scope=user-read-email,playlist-read-private,user-top-read,user-read-recently-played",
         }),
     ],
+    secret: process.env.SECRET,
     callbacks: {
         async jwt({ token, account }) {
             if (account) {
