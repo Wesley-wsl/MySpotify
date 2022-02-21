@@ -1,6 +1,7 @@
 import { SessionProvider } from "next-auth/react";
 import { AppProps } from "next/app";
 import Head from "next/head";
+import NextNprogress from "nextjs-progressbar";
 
 import GlobalStyles from "../styles/GlobalStyle";
 
@@ -20,6 +21,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
                 <meta name="theme-color" content="#000" />
             </Head>
             <GlobalStyles />
+            <NextNprogress color="#f1f1f1" startPosition={0.7} />
             <SessionProvider session={session}>
                 <Component {...pageProps} />
             </SessionProvider>
