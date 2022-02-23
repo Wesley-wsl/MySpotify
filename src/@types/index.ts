@@ -4,7 +4,7 @@ export interface IHome {
 }
 
 export interface IRelease {
-    id: string;
+    id?: string;
     name: string;
     artists: [{ name: string }];
     images: IImages[];
@@ -52,4 +52,41 @@ export interface ITracks {
     preview_url: string;
     id: string;
     duration_ms: number;
+    artists: [{ name: string }];
+}
+
+export interface ITracksData {
+    data: ITracks[];
+}
+
+export interface ISearchParams {
+    search?: string;
+}
+
+export interface IBrowseSearch {
+    search: {
+        albums: {
+            items: IAlbumData[];
+        };
+        artists: { items: IArtists[] };
+        playlists: { items: IPlaylists[] };
+    };
+}
+
+export interface IArtists {
+    followers: { total: number };
+    images: [{ url: string }];
+    name: string;
+    genres: string[];
+    id: string;
+    uri: string;
+}
+
+export interface IPlaylists {
+    name: string;
+    images: [{ url: string }];
+    id: string;
+    uri: string;
+    tracks: ITracks[];
+    owner: { display_name: string };
 }
