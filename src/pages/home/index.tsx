@@ -8,6 +8,7 @@ import Sidebar from "../../components/Sidebar";
 import Topbar from "../../components/Topbar";
 import { api } from "../../services/api";
 import * as S from "../../styles/pages/Home";
+import * as SS from "../../styles/shared";
 
 export default function Home({ releases, recentlyPlayed }: IHome) {
     return (
@@ -15,27 +16,31 @@ export default function Home({ releases, recentlyPlayed }: IHome) {
             <Sidebar />
             <Topbar />
 
-            <S.Recently>
+            <SS.ListContainer>
                 <h1>Recently played</h1>
 
-                <S.List>
+                <SS.List>
                     {recentlyPlayed.map((element, index) => (
-                        <Card key={index} data={element.track.album} />
+                        <Card
+                            key={index}
+                            data={element.track.album}
+                            type="Album"
+                        />
                     ))}
-                </S.List>
-            </S.Recently>
+                </SS.List>
+            </SS.ListContainer>
 
-            <S.Releases>
+            <SS.ListContainer>
                 <h1>New releases</h1>
 
-                <S.List>
+                <SS.List>
                     {releases.map(
                         (element: IRelease, index: Key | null | undefined) => (
-                            <Card key={index} data={element} />
+                            <Card key={index} data={element} type="Album" />
                         ),
                     )}
-                </S.List>
-            </S.Releases>
+                </SS.List>
+            </SS.ListContainer>
         </S.Container>
     );
 }
