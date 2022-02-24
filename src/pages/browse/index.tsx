@@ -4,7 +4,7 @@ import React from "react";
 
 import Sidebar from "../../components/Sidebar";
 import Topbar from "../../components/Topbar";
-import * as S from "../../styles/pages/Browse";
+import * as S from "../../styles/shared";
 
 export default function Browse() {
     return (
