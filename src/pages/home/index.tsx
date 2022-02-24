@@ -6,7 +6,7 @@ import List from "../../components/List";
 import Sidebar from "../../components/Sidebar";
 import Topbar from "../../components/Topbar";
 import { useFetch } from "../../hooks/useFetch";
-import * as S from "../../styles/pages/Home";
+import * as S from "../../styles/shared";
 
 export default function Home({ accessToken }: IHome) {
     const { data: releasess, error } = useFetch(
