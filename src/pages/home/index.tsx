@@ -1,14 +1,12 @@
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
-import { Key } from "react";
 
-import { IHome, IRelease } from "../../@types";
-import Card from "../../components/Card";
+import { IHome } from "../../@types";
+import List from "../../components/List";
 import Sidebar from "../../components/Sidebar";
 import Topbar from "../../components/Topbar";
 import { api } from "../../services/api";
 import * as S from "../../styles/pages/Home";
-import * as SS from "../../styles/shared";
 
 export default function Home({ releases, recentlyPlayed }: IHome) {
     return (
@@ -16,31 +14,13 @@ export default function Home({ releases, recentlyPlayed }: IHome) {
             <Sidebar />
             <Topbar />
 
-            <SS.ListContainer>
-                <h1>Recently played</h1>
+            <List
+                recently={recentlyPlayed}
+                type="Albums"
+                title="New releases"
+            />
 
-                <SS.List>
-                    {recentlyPlayed.map((element, index) => (
-                        <Card
-                            key={index}
-                            data={element.track.album}
-                            type="Album"
-                        />
-                    ))}
-                </SS.List>
-            </SS.ListContainer>
-
-            <SS.ListContainer>
-                <h1>New releases</h1>
-
-                <SS.List>
-                    {releases.map(
-                        (element: IRelease, index: Key | null | undefined) => (
-                            <Card key={index} data={element} type="Album" />
-                        ),
-                    )}
-                </SS.List>
-            </SS.ListContainer>
+            <List album={releases} type="Albums" title="Albums" />
         </S.Container>
     );
 }
