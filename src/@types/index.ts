@@ -1,23 +1,23 @@
 export interface IHome {
-    releases: IRelease[];
-    recentlyPlayed: IRecentlyPlayed[];
+    accessToken: string;
 }
 
 export interface IRelease {
     id?: string;
     name: string;
-    artists: [{ name: string }];
-    images: IImages[];
+    artists?: [{ name: string }];
+    images: IImages[] | [{ url?: string }];
 }
 
 export interface IImages {
-    url: string;
+    url?: string;
     height: number;
     width: number;
 }
 
 export interface ICard {
-    data: IRelease;
+    data: IRelease | IAlbumData | IPlaylists;
+    type: string;
 }
 
 export interface IRecentlyPlayed {
@@ -33,7 +33,7 @@ export interface IAlbumParams {
 }
 
 export interface IAlbum {
-    album: IAlbumData;
+    accessToken: string;
 }
 
 export interface IAlbumData {
@@ -41,6 +41,7 @@ export interface IAlbumData {
     name: string;
     release_date: string;
     images: IImages[];
+    id: string;
 
     tracks: {
         items: ITracks[];
@@ -64,13 +65,7 @@ export interface ISearchParams {
 }
 
 export interface IBrowseSearch {
-    search: {
-        albums: {
-            items: IAlbumData[];
-        };
-        artists: { items: IArtists[] };
-        playlists: { items: IPlaylists[] };
-    };
+    accessToken: string;
 }
 
 export interface IArtists {
@@ -84,9 +79,18 @@ export interface IArtists {
 
 export interface IPlaylists {
     name: string;
-    images: [{ url: string }];
+    images: IImages[];
     id: string;
     uri: string;
     tracks: ITracks[];
     owner: { display_name: string };
+}
+
+export interface IList {
+    title: string;
+    album?: IAlbumData[];
+    playlist?: IPlaylists[];
+    artists?: IArtists[];
+    recently?: IRecentlyPlayed[];
+    type: string;
 }
