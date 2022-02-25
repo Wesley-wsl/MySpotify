@@ -11,12 +11,15 @@ import Topbar from "../../components/Topbar";
 import Track from "../../components/Track";
 import { useFetch } from "../../hooks/useFetch";
 import * as S from "../../styles/pages/Album";
+import { testToken } from "../../utils/testToken";
 
 export default function Album({ accessToken }: IAlbum) {
     const router = useRouter();
     const { id } = router.query;
 
-    const { data } = useFetch(`albums/${id}`, `${accessToken}`);
+    const { data, error } = useFetch(`albums/${id}`, `${accessToken}`);
+
+    if (error) console.log(error);
 
     return (
         <S.Container>
@@ -51,8 +54,9 @@ export default function Album({ accessToken }: IAlbum) {
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
     const session = await getSession(ctx);
+    const isValid = testToken(`${session?.accessToken}`);
 
-    if (!session) {
+    if (!session || !isValid) {
         return {
             redirect: {
                 destination: "/",

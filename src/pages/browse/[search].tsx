@@ -10,6 +10,7 @@ import Sidebar from "../../components/Sidebar";
 import Topbar from "../../components/Topbar";
 import { useFetch } from "../../hooks/useFetch";
 import * as S from "../../styles/shared";
+import { testToken } from "../../utils/testToken";
 
 export default function BrowseSearch({ accessToken }: IBrowseSearch) {
     const router = useRouter();
@@ -54,8 +55,9 @@ export default function BrowseSearch({ accessToken }: IBrowseSearch) {
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
     const session = await getSession(ctx);
+    const isValid = testToken(`${session?.accessToken}`);
 
-    if (!session) {
+    if (!session || !isValid) {
         return {
             redirect: {
                 destination: "/",

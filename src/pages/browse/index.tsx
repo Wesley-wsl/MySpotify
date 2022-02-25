@@ -5,6 +5,7 @@ import React from "react";
 import Sidebar from "../../components/Sidebar";
 import Topbar from "../../components/Topbar";
 import * as S from "../../styles/shared";
+import { testToken } from "../../utils/testToken";
 
 export default function Browse() {
     return (
@@ -17,8 +18,9 @@ export default function Browse() {
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
     const session = await getSession(ctx);
+    const isValid = testToken(`${session?.accessToken}`);
 
-    if (!session) {
+    if (!session || !isValid) {
         return {
             redirect: {
                 destination: "/",
