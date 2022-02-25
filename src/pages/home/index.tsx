@@ -3,13 +3,14 @@ import { getSession } from "next-auth/react";
 
 import { IHome } from "../../@types";
 import List from "../../components/List";
+import Loading from "../../components/Loading";
 import Sidebar from "../../components/Sidebar";
 import Topbar from "../../components/Topbar";
 import { useFetch } from "../../hooks/useFetch";
 import * as S from "../../styles/shared";
 
 export default function Home({ accessToken }: IHome) {
-    const { data: releasess, error } = useFetch(
+    const { data: releases, error } = useFetch(
         "browse/new-releases?limit=12",
         `${accessToken}`,
     );
@@ -20,19 +21,28 @@ export default function Home({ accessToken }: IHome) {
     );
 
     if (error || recentlyError) console.log(error, recentlyError);
-    if (!releasess || !recentlyPlayed) return "Loading";
 
     return (
         <S.Container>
             <Sidebar />
             <Topbar />
-            <List
-                recently={recentlyPlayed.items}
-                type="Albums"
-                title="New releases"
-            />
 
-            <List album={releasess.albums.items} type="Albums" title="Albums" />
+            {recentlyPlayed && releases ? (
+                <>
+                    <List
+                        recently={recentlyPlayed.items}
+                        type="Albums"
+                        title="New releases"
+                    />
+                    <List
+                        album={releases.albums.items}
+                        type="Albums"
+                        title="Albums"
+                    />
+                </>
+            ) : (
+                <Loading />
+            )}
         </S.Container>
     );
 }
