@@ -1,18 +1,14 @@
-import { signOut } from "next-auth/react";
-
 import { api } from "../services/api";
 
 export async function testToken(accessToken: string) {
-    const testToken = await api.get("me", {
-        headers: {
-            Authorization: `Bearer ${accessToken}`,
-        },
-    });
+    const testToken = await api
+        .get("me", {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
+        })
+        .then(() => true)
+        .catch(() => false);
 
-    if (!testToken) {
-        signOut();
-        return false;
-    }
-
-    return true;
+    return testToken;
 }
