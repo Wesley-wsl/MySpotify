@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 
-import { IAlbum } from "../../@types";
+import { IPageProps } from "../../@types";
 import Loading from "../../components/Loading";
 import Sidebar from "../../components/Sidebar";
 import Topbar from "../../components/Topbar";
@@ -13,7 +13,7 @@ import { useFetch } from "../../hooks/useFetch";
 import * as S from "../../styles/pages/Album";
 import { testToken } from "../../utils/testToken";
 
-export default function Album({ accessToken }: IAlbum) {
+export default function Album({ accessToken }: IPageProps) {
     const router = useRouter();
     const { id } = router.query;
 

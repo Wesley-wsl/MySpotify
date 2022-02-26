@@ -1,7 +1,3 @@
-export interface IHome {
-    accessToken: string;
-}
-
 export interface IRelease {
     id?: string;
     name: string;
@@ -32,10 +28,6 @@ export interface IAlbumParams {
     id?: string;
 }
 
-export interface IAlbum {
-    accessToken: string;
-}
-
 export interface IAlbumData {
     artists: [{ name: string }];
     name: string;
@@ -64,10 +56,6 @@ export interface ISearchParams {
     search?: string;
 }
 
-export interface IBrowseSearch {
-    accessToken: string;
-}
-
 export interface IArtists {
     followers: { total: number };
     images: [{ url: string }];
@@ -89,8 +77,17 @@ export interface IPlaylists {
 export interface IList {
     title: string;
     album?: IAlbumData[];
+    myAlbum?: IMyAlbums[];
     playlist?: IPlaylists[];
     artists?: IArtists[];
     recently?: IRecentlyPlayed[];
     type: string;
+}
+
+export interface IMyAlbums {
+    album: IAlbumData;
+}
+
+export interface IPageProps {
+    accessToken: string;
 }

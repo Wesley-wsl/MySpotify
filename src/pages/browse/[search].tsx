@@ -3,7 +3,7 @@ import { getSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import React from "react";
 
-import { IBrowseSearch, ISearchParams } from "../../@types";
+import { IPageProps, ISearchParams } from "../../@types";
 import List from "../../components/List";
 import Loading from "../../components/Loading";
 import Sidebar from "../../components/Sidebar";
@@ -12,7 +12,7 @@ import { useFetch } from "../../hooks/useFetch";
 import * as S from "../../styles/shared";
 import { testToken } from "../../utils/testToken";
 
-export default function BrowseSearch({ accessToken }: IBrowseSearch) {
+export default function BrowseSearch({ accessToken }: IPageProps) {
     const router = useRouter();
     const { search }: ISearchParams = router.query;
 

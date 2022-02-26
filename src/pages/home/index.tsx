@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
 
-import { IHome } from "../../@types";
+import { IPageProps } from "../../@types";
 import List from "../../components/List";
 import Loading from "../../components/Loading";
 import Sidebar from "../../components/Sidebar";
@@ -10,7 +10,7 @@ import { useFetch } from "../../hooks/useFetch";
 import * as S from "../../styles/shared";
 import { testToken } from "../../utils/testToken";
 
-export default function Home({ accessToken }: IHome) {
+export default function Home({ accessToken }: IPageProps) {
     const { data: releases, error } = useFetch(
         "browse/new-releases?limit=12",
         `${accessToken}`,
