@@ -1,5 +1,6 @@
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
+import { destroyCookie } from "nookies";
 import React from "react";
 
 import Sidebar from "../../components/Sidebar";
@@ -18,9 +19,11 @@ export default function Browse() {
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
     const session = await getSession(ctx);
-    const isValid = testToken(`${session?.accessToken}`);
+    const isValid = await testToken(`${session?.accessToken}`);
 
     if (!session || !isValid) {
+        destroyCookie(ctx, "next-auth.session-token");
+
         return {
             redirect: {
                 destination: "/",

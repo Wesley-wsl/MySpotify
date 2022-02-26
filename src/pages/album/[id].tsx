@@ -2,6 +2,7 @@ import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { destroyCookie } from "nookies";
 import React from "react";
 
 import { IPageProps } from "../../@types";
@@ -54,9 +55,11 @@ export default function Album({ accessToken }: IPageProps) {
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
     const session = await getSession(ctx);
-    const isValid = testToken(`${session?.accessToken}`);
+    const isValid = await testToken(`${session?.accessToken}`);
 
     if (!session || !isValid) {
+        destroyCookie(ctx, "next-auth.session-token");
+
         return {
             redirect: {
                 destination: "/",
