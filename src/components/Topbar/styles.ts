@@ -7,6 +7,13 @@ export const Container = styled.div`
     padding: 2rem 0 0;
     max-width: 90rem;
     height: 5rem;
+
+    @media (max-width: 460px) {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 8rem;
+        gap: 2rem;
+    }
 `;
 
 export const SearchBar = styled.form`
@@ -15,6 +22,14 @@ export const SearchBar = styled.form`
     min-width: 18rem;
     max-width: 50rem;
     margin-right: 2rem;
+
+    @media (max-width: 460px) {
+        padding-right: 1rem;
+
+        input {
+            margin-right: 0;
+        }
+    }
 
     input {
         width: 100%;
