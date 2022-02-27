@@ -5,18 +5,19 @@ import { useRouter } from "next/router";
 import { destroyCookie } from "nookies";
 import React from "react";
 
-import { IPageProps } from "../../@types";
+import { IIdParams, IPageProps } from "../../@types";
 import Loading from "../../components/Loading";
 import Sidebar from "../../components/Sidebar";
 import Topbar from "../../components/Topbar";
 import Track from "../../components/Track";
 import { useFetch } from "../../hooks/useFetch";
 import * as S from "../../styles/pages/Album";
+import * as SS from "../../styles/shared";
 import { testToken } from "../../utils/testToken";
 
 export default function Album({ accessToken }: IPageProps) {
     const router = useRouter();
-    const { id } = router.query;
+    const { id }: IIdParams = router.query;
 
     const { data, error } = useFetch(`albums/${id}`, `${accessToken}`);
 
@@ -25,11 +26,11 @@ export default function Album({ accessToken }: IPageProps) {
     return (
         <S.Container>
             <Sidebar />
-            <S.Banner>
+            <SS.Banner>
                 <Topbar />
                 {data ? (
                     <>
-                        <S.Informations>
+                        <SS.Informations>
                             <Image
                                 src={`${data.images[0].url}`}
                                 width={170}
@@ -38,17 +39,17 @@ export default function Album({ accessToken }: IPageProps) {
                             />
 
                             <div>
-                                <h1> {data.name}</h1>
+                                <h1>{data.name}</h1>
                                 <p>Artist: {data.artists[0].name}</p>
                                 <p>Release: {data.release_date}</p>
                             </div>
-                        </S.Informations>
+                        </SS.Informations>
                         <Track data={data.tracks.items} />
                     </>
                 ) : (
                     <Loading />
                 )}
-            </S.Banner>
+            </SS.Banner>
         </S.Container>
     );
 }
