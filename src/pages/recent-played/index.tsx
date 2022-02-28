@@ -17,8 +17,6 @@ export default function Album({ accessToken }: IPageProps) {
         `${accessToken}`,
     );
 
-    console.log(data);
-
     if (error) console.log(error);
 
     return (
