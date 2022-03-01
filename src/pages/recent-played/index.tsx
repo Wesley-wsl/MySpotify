@@ -5,10 +5,8 @@ import React from "react";
 
 import { IPageProps } from "../../@types";
 import List from "../../components/List";
-import Sidebar from "../../components/Sidebar";
-import Topbar from "../../components/Topbar";
 import { useFetch } from "../../hooks/useFetch";
-import * as S from "../../styles/shared";
+import DashboardTemplate from "../../templates/Dashboard";
 import { testToken } from "../../utils/testToken";
 
 export default function Album({ accessToken }: IPageProps) {
@@ -20,10 +18,7 @@ export default function Album({ accessToken }: IPageProps) {
     if (error) console.log(error);
 
     return (
-        <S.Container>
-            <Sidebar />
-            <Topbar />
-
+        <DashboardTemplate>
             {data && (
                 <List
                     recently={data.items}
@@ -31,7 +26,7 @@ export default function Album({ accessToken }: IPageProps) {
                     title="Recently Played"
                 />
             )}
-        </S.Container>
+        </DashboardTemplate>
     );
 }
 

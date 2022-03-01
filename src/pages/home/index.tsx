@@ -5,10 +5,8 @@ import { destroyCookie } from "nookies";
 import { IPageProps } from "../../@types";
 import List from "../../components/List";
 import Loading from "../../components/Loading";
-import Sidebar from "../../components/Sidebar";
-import Topbar from "../../components/Topbar";
 import { useFetch } from "../../hooks/useFetch";
-import * as S from "../../styles/shared";
+import DashboardTemplate from "../../templates/Dashboard";
 import { testToken } from "../../utils/testToken";
 
 export default function Home({ accessToken }: IPageProps) {
@@ -25,27 +23,24 @@ export default function Home({ accessToken }: IPageProps) {
     if (error || recentlyError) console.log(error, recentlyError);
 
     return (
-        <S.Container>
-            <Sidebar />
-            <Topbar />
-
+        <DashboardTemplate>
             {recentlyPlayed && releases ? (
                 <>
                     <List
                         recently={recentlyPlayed.items}
                         type="Albums"
-                        title="New releases"
+                        title="Recently Played"
                     />
                     <List
                         album={releases.albums.items}
                         type="Albums"
-                        title="Albums"
+                        title="Releases"
                     />
                 </>
             ) : (
                 <Loading />
             )}
-        </S.Container>
+        </DashboardTemplate>
     );
 }
 
