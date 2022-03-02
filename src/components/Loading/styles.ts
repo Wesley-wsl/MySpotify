@@ -29,7 +29,7 @@ export const Loader = styled.div`
 export const Container = styled.div`
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
