@@ -3,6 +3,8 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import NextNprogress from "nextjs-progressbar";
 
+import Player from "../components/Player";
+import { PlayerProvider } from "../contexts/Player";
 import GlobalStyles from "../styles/GlobalStyle";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
@@ -23,7 +25,12 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
             <GlobalStyles />
             <NextNprogress color="#f1f1f1" startPosition={0.7} />
             <SessionProvider session={session}>
-                <Component {...pageProps} />
+                <PlayerProvider>
+                    <div>
+                        <Component {...pageProps} />
+                        <Player />
+                    </div>
+                </PlayerProvider>
             </SessionProvider>
         </>
     );
