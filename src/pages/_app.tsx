@@ -18,18 +18,20 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
                     href="/assets/spotify.svg"
                     type="image/x-icon"
                 />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <meta name="description" content="Boilerplate Nextjs" />
+                <meta
+                    name="description"
+                    content="MySpotify is a application that allow user see contents from your spotify and listening a preview. This is basically a Spotify Clone."
+                />
                 <meta name="theme-color" content="#000" />
             </Head>
             <GlobalStyles />
             <NextNprogress color="#f1f1f1" startPosition={0.7} />
             <SessionProvider session={session}>
                 <PlayerProvider>
-                    <div>
+                    <>
                         <Component {...pageProps} />
                         <Player />
-                    </div>
+                    </>
                 </PlayerProvider>
             </SessionProvider>
         </>
