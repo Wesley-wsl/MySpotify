@@ -1,6 +1,6 @@
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import Router from "next/router";
 import { FormEvent, useState } from "react";
 
 import ArrowDownSvg from "../../assets/icons/arrow-down.svg";
@@ -14,11 +14,9 @@ const Topbar: React.FC = () => {
     const [openOptions, setOpenOptions] = useState(false);
     const [search, setSearch] = useState(String);
 
-    const router = useRouter();
-
     const handleSearch = (e: FormEvent) => {
         e.preventDefault();
-        if (search.trim() !== "") router.push(`/browse/${search.trim()}`);
+        if (search.trim() !== "") Router.push(`/browse/${search.trim()}`);
 
         setSearch("");
     };
