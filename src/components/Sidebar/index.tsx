@@ -53,23 +53,13 @@ const Sidebar: React.FC = () => {
                             <Link href="/recent-played">Recent played</Link>
                         </li>
                         <li>
+                            <Link href="/playlists">Playlists</Link>
+                        </li>
+                        <li>
                             <Link href="/albums">Albums</Link>
                         </li>
                         <li>
                             <Link href="/artists">Artists</Link>
-                        </li>
-                    </S.ListStyle>
-                </nav>
-
-                <S.Label>Playlists</S.Label>
-
-                <nav>
-                    <S.ListStyle>
-                        <li>
-                            <Link href="/chill">Chill</Link>
-                        </li>
-                        <li>
-                            <Link href="/lofi">Lofi</Link>
                         </li>
                     </S.ListStyle>
                 </nav>
