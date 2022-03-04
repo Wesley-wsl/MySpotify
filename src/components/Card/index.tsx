@@ -53,8 +53,8 @@ const Card: React.FC<ICard> = ({ data, type }) => {
                         {data.images[0] && data.images[0].url && data ? (
                             <Image
                                 src={data.images[0]?.url}
-                                width={190}
-                                height={190}
+                                width={200}
+                                height={200}
                                 alt={`Playlist ${data.name} image`}
                             />
                         ) : (
@@ -71,8 +71,8 @@ const Card: React.FC<ICard> = ({ data, type }) => {
                         {data.images[0] && data.images[0].url && data ? (
                             <Image
                                 src={data.images[0]?.url}
-                                width={190}
-                                height={190}
+                                width={200}
+                                height={200}
                                 alt={`Album ${data.name} image`}
                             />
                         ) : (
