@@ -24,7 +24,7 @@ export interface IRecentlyPlayed {
     };
 }
 
-export interface IAlbumParams {
+export interface IIdParams {
     id?: string;
 }
 
@@ -40,6 +40,10 @@ export interface IAlbumData {
     };
 }
 
+export interface IPlaylistTracks {
+    track: ITracks;
+}
+
 export interface ITracks {
     name: string;
     preview_url: string;
@@ -49,7 +53,8 @@ export interface ITracks {
 }
 
 export interface ITracksData {
-    data: ITracks[];
+    data?: ITracks[];
+    playlist?: IPlaylistTracks[];
 }
 
 export interface ISearchParams {
@@ -90,4 +95,26 @@ export interface IMyAlbums {
 
 export interface IPageProps {
     accessToken: string;
+}
+
+export interface IBanner {
+    type?: string;
+    data: IBannerData;
+}
+
+export interface IBannerData {
+    name: string;
+    followers?: { total: number };
+    images: [{ url: string }];
+    id: string;
+    release_date?: string;
+    artists?: [{ name: string }];
+}
+
+export interface ISideBar {
+    isOpen: boolean;
+}
+
+export interface IPlayer {
+    previewUrl: string;
 }
