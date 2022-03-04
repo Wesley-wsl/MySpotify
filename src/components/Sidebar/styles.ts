@@ -113,6 +113,10 @@ export const Mobile = styled.div`
         background-color: #f1f1f1;
         margin-bottom: 0.5rem;
     }
+
+    @media (min-width: 810px) {
+        display: none;
+    }
 `;
 
 export const Close = styled.div`
