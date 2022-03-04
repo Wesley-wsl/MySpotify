@@ -6,67 +6,19 @@ import { ICard } from "../../@types";
 import * as S from "./styles";
 
 const Card: React.FC<ICard> = ({ data, type }) => {
+    function getRedirect(type: string): string | undefined {
+        if (type === "Artists") return "artist";
+        if (type === "Albums") return "album";
+        if (type === "Playlists") return "playlist";
+        if (type === "MyAlbums") return "album";
+    }
+
+    const path = getRedirect(type);
+
     return (
         <>
-            {type === "Artists" && data && (
-                <Link href={`/artist/${data.id}`} passHref>
-                    <S.Container>
-                        {data.images[0] && data.images[0].url && data ? (
-                            <div>
-                                <Image
-                                    src={data.images[0]?.url}
-                                    width={200}
-                                    height={200}
-                                    alt={`Artist ${data.name} image`}
-                                    className="border_radius"
-                                />
-                            </div>
-                        ) : (
-                            <div className="FakeImageBorder" />
-                        )}
-
-                        <S.TitleArtists>{data.name}</S.TitleArtists>
-                    </S.Container>
-                </Link>
-            )}
-            {type === "Albums" && data && (
-                <Link href={`/album/${data.id}`} passHref>
-                    <S.Container>
-                        {data.images[0] && data.images[0].url && data ? (
-                            <Image
-                                src={data.images[0]?.url}
-                                width={200}
-                                height={200}
-                                alt={`Album ${data.name} image`}
-                            />
-                        ) : (
-                            <div className="FakeImage" />
-                        )}
-
-                        <S.Title>{data.name}</S.Title>
-                    </S.Container>
-                </Link>
-            )}
-            {type === "Playlists" && data && (
-                <Link href={`/playlist/${data.id}`} passHref>
-                    <S.Container>
-                        {data.images[0] && data.images[0].url && data ? (
-                            <Image
-                                src={data.images[0]?.url}
-                                width={200}
-                                height={200}
-                                alt={`Playlist ${data.name} image`}
-                            />
-                        ) : (
-                            <div className="FakeImage" />
-                        )}
-
-                        <S.Title>{data.name}</S.Title>
-                    </S.Container>
-                </Link>
-            )}
-            {type === "MyAlbums" && data && (
-                <Link href={`/album/${data.id}`} passHref>
+            {data && (
+                <Link href={`/${path}/${data.id}`} passHref>
                     <S.Container>
                         {data.images[0] && data.images[0].url && data ? (
                             <Image
