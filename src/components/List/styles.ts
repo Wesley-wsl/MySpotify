@@ -21,6 +21,12 @@ export const ListContainer = styled.section`
 export const List = styled.div`
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
+    padding-right: 2rem;
     gap: 3.3rem;
+
+    @media (max-width: 970px) {
+        justify-content: space-around;
+    }
 `;
