@@ -10,7 +10,7 @@ import * as S from "../../styles/pages/LikedSongs";
 import DashboardTemplate from "../../templates/Dashboard";
 import { testToken } from "../../utils/testToken";
 
-export default function Album({ accessToken }: IPageProps) {
+export default function LikedSongs({ accessToken }: IPageProps) {
     const { data, error } = useFetch("me/tracks", `${accessToken}`);
 
     if (error) console.log(error);

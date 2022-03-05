@@ -9,7 +9,7 @@ import { useFetch } from "../../hooks/useFetch";
 import DashboardTemplate from "../../templates/Dashboard";
 import { testToken } from "../../utils/testToken";
 
-export default function Album({ accessToken }: IPageProps) {
+export default function RecentPlayed({ accessToken }: IPageProps) {
     const { data, error } = useFetch(
         "me/player/recently-played",
         `${accessToken}`,
