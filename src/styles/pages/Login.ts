@@ -27,11 +27,7 @@ export const Login = styled.button`
         color: #000;
         background-color: var(--dark-green-primary);
         transform: translateY(-0.8rem) scale(110%);
-        box-shadow: 0 0 1rem var(--dark-green-primary),
-            0 0 2rem var(--dark-green-primary),
-            0 0 4rem var(--dark-green-primary),
-            0 0 8rem var(--dark-green-primary),
-            0 0 16rem var(--dark-green-primary);
+        box-shadow: 0rem 0rem 2rem var(--dark-green-primary);
     }
 
     @keyframes Appear {
