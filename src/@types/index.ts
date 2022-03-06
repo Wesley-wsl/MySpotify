@@ -128,3 +128,7 @@ export interface ITheme {
         greySecoundary: string;
     };
 }
+
+export interface ISidebarContainer {
+    isOpen: boolean;
+}
