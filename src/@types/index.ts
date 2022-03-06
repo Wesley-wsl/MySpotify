@@ -111,10 +111,20 @@ export interface IBannerData {
     artists?: [{ name: string }];
 }
 
-export interface ISideBar {
-    isOpen: boolean;
-}
-
 export interface IPlayer {
     previewUrl: string;
+}
+
+export interface ITheme {
+    theme: {
+        primary: string;
+        secondary: string;
+        thirdy: string;
+        sideBar: string;
+        color: string;
+        buttonLogin: string;
+        buttonHover: string;
+        greyPrimary: string;
+        greySecoundary: string;
+    };
 }
