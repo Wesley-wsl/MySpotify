@@ -2,18 +2,6 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 
-:root {
-    --dark-primary: #000;
-    --dark-secoundary: #040404;
-    --dark-green-primary: #1DB954;
-    --dark-green-secoundary: #1DB95415;
-    --white-primary: #FFFFFF;
-    --white-secoundary: #f1f1f1;
-    --grey-primary: #646464;
-    --grey-secoundary: #c4c4c4;
-}
-
-
 * {
     margin: 0;
     padding: 0;
@@ -40,11 +28,11 @@ ul {
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--dark-secoundary);
+  background: #040404;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--white-secoundary);
+  background-color: #f1f1f1;
   border-radius: 1.5rem;
 }
 

@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-import { ISideBar } from "../../@types";
+import { ITheme } from "../../@types";
 
 export const Container = styled.div`
-    background-color: var(--dark-primary);
+    background-color: ${({ theme }: ITheme) => theme.sideBar};
     width: 24rem;
     min-height: 100vh;
-    color: var(--white-secoundary);
+    color: ${({ theme }: ITheme) => theme.color};
     padding-left: 2rem;
     font-size: 1.6rem;
     position: fixed;
@@ -26,7 +26,7 @@ export const Container = styled.div`
             height: 5.5rem;
             transition: background-color 0.2s linear;
             text-decoration: none;
-            color: var(--white-secoundary);
+            color: ${({ theme }: ITheme) => theme.color};
             svg {
                 margin-right: 1.7rem;
             }
@@ -39,7 +39,7 @@ export const Container = styled.div`
     }
 
     @media (max-width: 810px) {
-        transform: ${({ isOpen }: ISideBar) =>
+        transform: ${({ isOpen }: any) =>
             isOpen ? "translateX(0)" : "translateX(-100%)"};
     }
 `;
@@ -52,13 +52,17 @@ export const MainNavigation = styled.nav`
         align-items: center;
 
         &:hover {
-            background-color: var(--dark-green-secoundary);
+            background-color: ${({ theme }: ITheme) => theme.buttonHover};
+        }
+
+        svg > path {
+            stroke: ${({ theme }: ITheme) => theme.color};
         }
     }
 `;
 
 export const ListStyle = styled.ul`
-    color: var(--grey-secoundary);
+    color: ${({ theme }: ITheme) => theme.color};
     li {
         padding: 1rem 0;
         max-width: 30rem;
@@ -69,10 +73,10 @@ export const ListStyle = styled.ul`
         cursor: pointer;
         width: 20rem;
         transition: background-color 0.2s linear;
-        color: var(--white-secoundary);
+        color: ${({ theme }: ITheme) => theme.color};
         border-radius: 0.8rem;
         &:hover {
-            background-color: var(--dark-green-secoundary);
+            background-color: ${({ theme }: ITheme) => theme.buttonHover};
         }
 
         a {
@@ -85,7 +89,7 @@ export const ListStyle = styled.ul`
 
 export const Label = styled.p`
     font-size: 1.6rem;
-    color: var(--grey-secoundary);
+    color: ${({ theme }: ITheme) => theme.greyPrimary};
     margin: 0.3rem 2rem;
     font-weight: 200;
 `;
@@ -96,7 +100,7 @@ export const Mobile = styled.div`
     bottom: 0;
     left: 0rem;
     padding-top: 1rem;
-    background-color: #000;
+    background-color: ${({ theme }: ITheme) => theme.secondary};
     width: 5.6rem;
     min-height: 100vh;
     display: flex;
@@ -110,7 +114,7 @@ export const Mobile = styled.div`
     div {
         width: 2.5rem;
         height: 0.2rem;
-        background-color: #f1f1f1;
+        background-color: ${({ theme }: ITheme) => theme.color};
         margin-bottom: 0.5rem;
     }
 
@@ -123,8 +127,8 @@ export const Close = styled.div`
     font-size: 2rem;
     padding: 0.5rem;
     width: 90%;
-    background-color: var(--dark-green-secoundary);
-    color: #f1f1f1;
+    background-color: ${({ theme }: ITheme) => theme.buttonHover};
+    color: ${({ theme }: ITheme) => theme.color};
     border-radius: 2rem;
     font-weight: 400;
     text-align: center;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { IPlayer } from "../../@types";
+import { IPlayer, ITheme } from "../../@types";
 
 export const Container = styled.footer`
     position: fixed;
@@ -13,7 +13,7 @@ export const Container = styled.footer`
         previewUrl === "" ? "none" : "block"};
 
     .rhap_container {
-        background-color: #000;
+        background-color: ${({ theme }: ITheme) => theme.secondary};
     }
 
     .rhap_progress-filled,
@@ -22,10 +22,10 @@ export const Container = styled.footer`
     }
 
     .rhap_time {
-        color: #f1f1f1;
+        color: ${({ theme }: ITheme) => theme.color};
     }
 
     svg {
-        color: #fff;
+        color: ${({ theme }: ITheme) => theme.color};
     }
 `;

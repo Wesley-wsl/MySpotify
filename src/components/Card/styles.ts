@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
+import { ITheme } from "../../@types";
+
 export const Container = styled.div`
     cursor: pointer;
     margin-bottom: 4rem;
-    transition: all 0.2s linear;
+    transition: transform 0.2s linear;
     max-width: 20rem;
     &:hover {
         transform: scale(120%);
@@ -31,14 +33,14 @@ export const Container = styled.div`
         height: 20rem;
         border-radius: 0.5rem;
         filter: contrast(120%);
-        background-color: var(--dark-primary);
+        background-color: #212121;
     }
 
     .FakeImageBorder {
         width: 20rem;
         height: 20rem;
         filter: contrast(120%);
-        background-color: var(--dark-primary);
+        background-color: #111;
         border-radius: 50%;
     }
 `;
@@ -50,7 +52,7 @@ export const Title = styled.p`
 
 export const Author = styled.p`
     font-size: 1.6rem;
-    color: var(--grey-primary);
+    color: ${({ theme }: ITheme) => theme.greySecoundary};
 `;
 
 export const TitleArtists = styled.p`

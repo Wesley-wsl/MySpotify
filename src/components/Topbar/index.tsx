@@ -1,24 +1,39 @@
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Router from "next/router";
-import { FormEvent, useState } from "react";
+import { destroyCookie, setCookie } from "nookies";
+import { FormEvent, useContext, useState } from "react";
 
 import ArrowDownSvg from "../../assets/icons/arrow-down.svg";
 import ArrowUpSvg from "../../assets/icons/arrow-up.svg";
+import MoonSvg from "../../assets/icons/moon.svg";
 import ProfileSvg from "../../assets/icons/profile.svg";
 import SearchSvg from "../../assets/icons/search.svg";
+import SunSvg from "../../assets/icons/sun.svg";
+import { ThemeContext } from "../../contexts/Theme";
 import * as S from "./styles";
 
 const Topbar: React.FC = () => {
     const { data } = useSession();
     const [openOptions, setOpenOptions] = useState(false);
     const [search, setSearch] = useState(String);
+    const { lightMode, setLightMode } = useContext(ThemeContext);
 
     const handleSearch = (e: FormEvent) => {
         e.preventDefault();
         if (search.trim() !== "") Router.push(`/browse/${search.trim()}`);
 
         setSearch("");
+    };
+
+    const changeTheme = async () => {
+        if (lightMode) {
+            destroyCookie(null, "theme");
+            setLightMode(false);
+        } else {
+            setCookie(null, "theme", "light");
+            setLightMode(true);
+        }
     };
 
     return (
@@ -61,6 +76,12 @@ const Topbar: React.FC = () => {
                     <S.Options>
                         <li onClick={() => signOut()}>Log out</li>
                     </S.Options>
+                )}
+
+                {lightMode ? (
+                    <MoonSvg onClick={changeTheme} className="moon" />
+                ) : (
+                    <SunSvg onClick={changeTheme} className="sun" />
                 )}
             </S.ProfileContainer>
         </S.Container>

@@ -1,14 +1,17 @@
 import styled from "styled-components";
 
+import { ITheme } from "../../@types";
+
 export const Container = styled.section`
     width: 100%;
-    background-color: var(--dark-secoundary);
+    background-color: ${({ theme }: ITheme) => theme.primary};
     padding-bottom: 8rem;
 
     .playing {
-        background-color: var(--dark-green-secoundary);
+        background-color: ${({ theme }: ITheme) => theme.buttonHover};
         border-radius: 0.5rem;
-        box-shadow: 0.2rem 0.2rem 1rem 0.2rem var(--dark-green-secoundary);
+        box-shadow: 0.2rem 0.2rem 1rem 0.2rem
+            ${({ theme }: ITheme) => theme.buttonHover};
     }
 
     table {
@@ -20,7 +23,8 @@ export const Container = styled.section`
         overflow: hidden;
 
         tr {
-            border-bottom: 0.1rem solid #f1f1f144;
+            border-bottom: 0.1rem solid
+                ${({ theme }: ITheme) => theme.greySecoundary};
             display: grid;
             grid-template-columns: 0.3fr 1fr 1fr 0.3fr;
             align-items: center;
@@ -39,7 +43,8 @@ export const Container = styled.section`
                 cursor: pointer;
                 transition: all 0.2s linear;
                 &:hover {
-                    background-color: var(--dark-green-secoundary);
+                    background-color: ${({ theme }: ITheme) =>
+                        theme.buttonHover};
                     border-radius: 1rem;
                 }
             }
@@ -52,10 +57,14 @@ export const Container = styled.section`
 
             td {
                 padding: 1.5rem;
+
+                svg > path {
+                    fill: ${({ theme }: ITheme) => theme.color};
+                }
             }
 
             .selected {
-                background-color: var(--dark-green-secoundary);
+                background-color: ${({ theme }: ITheme) => theme.buttonHover};
                 border-radius: 1rem;
             }
         }
@@ -91,7 +100,6 @@ export const Container = styled.section`
 
     @media (max-width: 483px) {
         table {
-            /* width: 70%; */
             tbody {
                 font-size: 1.5rem;
             }

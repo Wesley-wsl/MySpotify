@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
+import { ITheme } from "../@types";
+
 export const NotExists = styled.h1`
     font-size: 3rem;
     margin-top: 4.5rem;
 `;
 
 export const Banner = styled.section`
-    background: linear-gradient(to bottom, #000, var(--dark-secoundary));
+    background: ${({ theme }: ITheme) => theme.primary};
     width: 100%;
     height: 33rem;
     position: relative;
