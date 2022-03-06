@@ -63,9 +63,9 @@ or
 $ npm install
 
 # Run the application:
-$ yarn start
+$ yarn dev
 or
-$ npm run start
+$ npm run dev
 </pre>
 
 Okay, now you can access the application from the route:  <a href="https://localhost:3000/">https://localhost:3000/</a>
