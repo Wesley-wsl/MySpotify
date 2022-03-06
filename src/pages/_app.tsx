@@ -5,6 +5,7 @@ import NextNprogress from "nextjs-progressbar";
 
 import Player from "../components/Player";
 import { PlayerProvider } from "../contexts/Player";
+import { ThemeContextProvider } from "../contexts/Theme";
 import GlobalStyles from "../styles/GlobalStyle";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
@@ -25,14 +26,16 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
                 <meta name="theme-color" content="#000" />
             </Head>
             <GlobalStyles />
-            <NextNprogress color="#f1f1f1" startPosition={0.7} />
+            <NextNprogress color={"#1DB954aa"} startPosition={0.7} />
             <SessionProvider session={session}>
-                <PlayerProvider>
-                    <>
-                        <Component {...pageProps} />
-                        <Player />
-                    </>
-                </PlayerProvider>
+                <ThemeContextProvider>
+                    <PlayerProvider>
+                        <>
+                            <Component {...pageProps} />
+                            <Player />
+                        </>
+                    </PlayerProvider>
+                </ThemeContextProvider>
             </SessionProvider>
         </>
     );
