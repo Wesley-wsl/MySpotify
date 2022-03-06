@@ -8,7 +8,7 @@ export const ListContainer = styled.section`
         font-weight: 500;
         margin-top: 4.5rem;
         margin-bottom: 3rem;
-        font-size: 3.2rem;
+        font-size: clamp(2.5rem, 5vw, 3.2rem);
         letter-spacing: 0.25rem;
     }
 

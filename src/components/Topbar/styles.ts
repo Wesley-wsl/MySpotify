@@ -10,7 +10,7 @@ export const Container = styled.div`
     max-width: 95.4rem;
     height: 5rem;
 
-    @media (max-width: 479px) {
+    @media (max-width: 520px) {
         flex-direction: column;
         align-items: center;
         padding-right: 1rem;

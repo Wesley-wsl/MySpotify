@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import { ITheme } from "../../@types";
+import { ISidebarContainer, ITheme } from "../../@types";
 
-export const Container = styled.div`
+export const Container = styled.div<ISidebarContainer>`
     background-color: ${({ theme }: ITheme) => theme.sideBar};
     width: 24rem;
     min-height: 100vh;
@@ -39,7 +39,7 @@ export const Container = styled.div`
     }
 
     @media (max-width: 810px) {
-        transform: ${({ isOpen }: any) =>
+        transform: ${({ isOpen }) =>
             isOpen ? "translateX(0)" : "translateX(-100%)"};
     }
 `;
