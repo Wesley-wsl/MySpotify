@@ -7,7 +7,6 @@ import { IPageProps } from "../../@types";
 import List from "../../components/List";
 import Loading from "../../components/Loading";
 import { useFetch } from "../../hooks/useFetch";
-import * as S from "../../styles/shared";
 import DashboardTemplate from "../../templates/Dashboard";
 import { testToken } from "../../utils/testToken";
 
@@ -20,14 +19,12 @@ export default function Artists({ accessToken }: IPageProps) {
         <DashboardTemplate>
             {!data && <Loading />}
 
-            {data && data?.artists?.items.length !== 0 ? (
+            {data && data?.artists?.items.length !== 0 && (
                 <List
                     artists={data.artists.items}
                     type="Artists"
                     title="Artists that You Is Following"
                 />
-            ) : (
-                <S.NotExists>You don&apos;t is following artists.</S.NotExists>
             )}
         </DashboardTemplate>
     );

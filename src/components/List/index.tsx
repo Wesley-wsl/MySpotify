@@ -15,7 +15,11 @@ const List: React.FC<IList> = ({
 }) => {
     return (
         <S.ListContainer>
-            <h1>{title}</h1>
+            <h1>
+                {myAlbum?.length === 0 || artists?.length === 0
+                    ? "You don&apos;t have albums saved."
+                    : title}
+            </h1>
 
             {artists && (
                 <S.List>

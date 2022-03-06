@@ -2,11 +2,6 @@ import styled from "styled-components";
 
 import { ITheme } from "../@types";
 
-export const NotExists = styled.h1`
-    font-size: 3rem;
-    margin-top: 4.5rem;
-`;
-
 export const Banner = styled.section`
     background: ${({ theme }: ITheme) => theme.primary};
     width: 100%;

@@ -6,7 +6,6 @@ import { IPageProps } from "../../@types";
 import List from "../../components/List";
 import Loading from "../../components/Loading";
 import { useFetch } from "../../hooks/useFetch";
-import * as S from "../../styles/shared";
 import DashboardTemplate from "../../templates/Dashboard";
 import { testToken } from "../../utils/testToken";
 
@@ -19,14 +18,12 @@ export default function Albums({ accessToken }: IPageProps) {
         <DashboardTemplate>
             {!data && <Loading />}
 
-            {data && data?.items.length !== 0 ? (
+            {data && data?.items.length !== 0 && (
                 <List
                     myAlbum={data.items}
                     type="MyAlbums"
                     title="Albums That You Saved"
                 />
-            ) : (
-                <S.NotExists>You don&apos;t have albums saved.</S.NotExists>
             )}
         </DashboardTemplate>
     );
