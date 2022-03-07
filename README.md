@@ -8,7 +8,7 @@
 
 ## Application deploy with Vercel: :dash:
 
->
+> https://my-spotify-fawn.vercel.app
 
 ## 📖 About the Project
 
@@ -31,8 +31,8 @@ MySpotify - An application that make using Spotify Web Api to fetch data and sho
 ## 🛠 Technologies
 
 <li><a href="https://nextjs.org">Next.js</a></li>
-<li><a href="https://next-auth.js.org">Next-Auth"</a></li>
-<li><a href="Typescriptlang.org">Typescript</a></li>
+<li><a href="https://next-auth.js.org">Next-Auth</a></li>
+<li><a href="https://www.typescriptlang.org">Typescript</a></li>
 <li><a href="https://styled-components.com">Styled-components</a></li>
 <li><a href="https://axios-http.com">Axios</a></li>
 <li><a href="https://swr.vercel.app">SWR</a></li>
