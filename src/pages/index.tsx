@@ -6,9 +6,7 @@ import * as S from "../styles/pages/Login";
 export default function Login() {
     return (
         <S.Container>
-            <S.Login onClick={() => signIn("spotify")}>
-                Login with Spotify
-            </S.Login>
+            <S.Login onClick={() => signIn()}>Login with Spotify</S.Login>
         </S.Container>
     );
 }
