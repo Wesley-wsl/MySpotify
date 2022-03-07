@@ -117,6 +117,7 @@ export const Options = styled.ul`
     top: -0.5rem;
     left: -2rem;
     right: 3rem;
+    z-index: 2;
     min-height: 7rem;
     border-radius: 1rem;
     display: flex;
