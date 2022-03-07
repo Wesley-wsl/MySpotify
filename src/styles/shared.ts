@@ -71,7 +71,7 @@ export const Informations = styled.div`
     @media (max-width: 525px) {
         flex-direction: column;
         align-items: center;
-        height: 28rem;
+        height: 20rem;
         justify-content: center;
         margin-left: 6rem;
 
