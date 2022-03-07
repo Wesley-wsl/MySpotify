@@ -15,6 +15,6 @@
         "isolatedModules": true,
         "jsx": "preserve"
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/_app.tsx"],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/_app.tsx", "src/pages/api/auth/[...nextauth].ts", "src/utils/getHashParams.js", "src/services/api.ts", "src/pages/api/me.ts", "next.config.js"],
     "exclude": ["node_modules"]
 }
