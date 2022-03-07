@@ -5,7 +5,7 @@ import { ITheme } from "../../@types";
 export const Container = styled.main`
     background-color: ${({ theme }: ITheme) => theme.primary};
     color: ${({ theme }: ITheme) => theme.color};
-    padding-left: 24rem;
+    padding-left: 20rem;
     padding-bottom: 5rem;
     min-height: 100vh;
 
