@@ -6,9 +6,19 @@ export const Container = styled.main`
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: ${({ theme }: ITheme) => theme.primary};
+
+    p:nth-child(2) {
+        margin-top: 2rem;
+    }
+
+    p {
+        color: ${({ theme }: ITheme) => theme.color};
+        font-size: 1.5rem;
+    }
 `;
 
 export const Login = styled.button`

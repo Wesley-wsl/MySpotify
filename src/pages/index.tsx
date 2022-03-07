@@ -9,6 +9,8 @@ export default function Login() {
             <S.Login onClick={() => signIn("spotify")}>
                 Login with Spotify
             </S.Login>
+            <p>Email: Testerapp112@gmail.com</p>
+            <p>Password: tester112</p>
         </S.Container>
     );
 }
