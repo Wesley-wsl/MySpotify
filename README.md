@@ -8,7 +8,7 @@
 
 ## Application deploy with Vercel: :dash:
 
-> https://my-spotify-one.vercel.app
+> https://my-spotify-dlbx98mln-wesley-wsl.vercel.app
 
 ## 📖 About the Project
 
