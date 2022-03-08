@@ -10,6 +10,8 @@
 
 > https://my-spotify-dlbx98mln-wesley-wsl.vercel.app
 
+**Note:** Unfortunately api spotify only allow that users authorized from developer access the application,then to test use the disponible account in page sigin.
+
 ## 📖 About the Project
 
 MySpotify - An application that make using Spotify Web Api to fetch data and show all data necessary for this application how albums, tracks, releases, playlists and more. It's basically a Spotify Clone but with a new design.
