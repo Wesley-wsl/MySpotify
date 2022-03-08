@@ -18,6 +18,8 @@ export const Container = styled.main`
     p {
         color: ${({ theme }: ITheme) => theme.color};
         font-size: 1.5rem;
+        opacity: 0.9;
+        animation: Appear 1.2s cubic-bezier(1, 0.575, 0.565, 1);
     }
 `;
 
