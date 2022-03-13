@@ -13,12 +13,12 @@ const Sidebar: React.FC = () => {
         <>
             <S.Container isOpen={isOpen}>
                 {isOpen && (
-                    <S.Close onClick={() => setIsOpen(!isOpen)}>X</S.Close>
+                    <S.Close onClick={() => setIsOpen(false)}>X</S.Close>
                 )}
 
                 <S.MainNavigation>
                     <ul>
-                        <li>
+                        <li onClick={() => setIsOpen(false)}>
                             <Link href="/home">
                                 <a>
                                     <HomeSvg aria-label="Home icon" />
@@ -26,7 +26,7 @@ const Sidebar: React.FC = () => {
                                 </a>
                             </Link>
                         </li>
-                        <li>
+                        <li onClick={() => setIsOpen(false)}>
                             <Link href="/browse">
                                 <a>
                                     <BrowseSvg aria-label="browse icon" />
@@ -34,7 +34,7 @@ const Sidebar: React.FC = () => {
                                 </a>
                             </Link>
                         </li>
-                        <li>
+                        <li onClick={() => setIsOpen(false)}>
                             <Link href="/liked-songs">
                                 <a>
                                     <LikedSongsSvg aria-label="heart icon" />
@@ -49,16 +49,16 @@ const Sidebar: React.FC = () => {
 
                 <nav>
                     <S.ListStyle>
-                        <li>
+                        <li onClick={() => setIsOpen(false)}>
                             <Link href="/recent-played">Recent played</Link>
                         </li>
-                        <li>
+                        <li onClick={() => setIsOpen(false)}>
                             <Link href="/playlists">Playlists</Link>
                         </li>
-                        <li>
+                        <li onClick={() => setIsOpen(false)}>
                             <Link href="/albums">Albums</Link>
                         </li>
-                        <li>
+                        <li onClick={() => setIsOpen(false)}>
                             <Link href="/artists">Artists</Link>
                         </li>
                     </S.ListStyle>
