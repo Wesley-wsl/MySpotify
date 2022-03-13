@@ -6,7 +6,6 @@ import { IPageProps } from "../../@types";
 import List from "../../components/List";
 import Loading from "../../components/Loading";
 import { useFetch } from "../../hooks/useFetch";
-import DashboardTemplate from "../../templates/Dashboard";
 import { testToken } from "../../utils/testToken";
 
 export default function Albums({ accessToken }: IPageProps) {
@@ -15,7 +14,7 @@ export default function Albums({ accessToken }: IPageProps) {
     if (error) console.log(error);
 
     return (
-        <DashboardTemplate>
+        <>
             {!data && <Loading />}
 
             {data && data?.items.length !== 0 && (
@@ -25,7 +24,7 @@ export default function Albums({ accessToken }: IPageProps) {
                     title="Albums That You Saved"
                 />
             )}
-        </DashboardTemplate>
+        </>
     );
 }
 

@@ -6,7 +6,6 @@ import { IPageProps } from "../../@types";
 import List from "../../components/List";
 import Loading from "../../components/Loading";
 import { useFetch } from "../../hooks/useFetch";
-import DashboardTemplate from "../../templates/Dashboard";
 import { testToken } from "../../utils/testToken";
 
 export default function Home({ accessToken }: IPageProps) {
@@ -23,7 +22,7 @@ export default function Home({ accessToken }: IPageProps) {
     if (error || recentlyError) console.log(error, recentlyError);
 
     return (
-        <DashboardTemplate>
+        <>
             {recentlyPlayed && releases ? (
                 <>
                     <List
@@ -40,7 +39,7 @@ export default function Home({ accessToken }: IPageProps) {
             ) : (
                 <Loading />
             )}
-        </DashboardTemplate>
+        </>
     );
 }
 

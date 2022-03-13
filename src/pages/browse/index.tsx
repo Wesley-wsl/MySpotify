@@ -3,11 +3,10 @@ import { getSession } from "next-auth/react";
 import { destroyCookie } from "nookies";
 import React from "react";
 
-import DashboardTemplate from "../../templates/Dashboard";
 import { testToken } from "../../utils/testToken";
 
 export default function Browse() {
-    return <DashboardTemplate />;
+    return <div />;
 }
 
 export const getServerSideProps: GetServerSideProps = async ctx => {

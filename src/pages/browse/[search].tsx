@@ -8,7 +8,6 @@ import { IPageProps, ISearchParams } from "../../@types";
 import List from "../../components/List";
 import Loading from "../../components/Loading";
 import { useFetch } from "../../hooks/useFetch";
-import DashboardTemplate from "../../templates/Dashboard";
 import { testToken } from "../../utils/testToken";
 
 export default function BrowseSearch({ accessToken }: IPageProps) {
@@ -23,7 +22,7 @@ export default function BrowseSearch({ accessToken }: IPageProps) {
     if (error) console.log(error);
 
     return (
-        <DashboardTemplate>
+        <>
             {data ? (
                 <>
                     <List
@@ -46,7 +45,7 @@ export default function BrowseSearch({ accessToken }: IPageProps) {
             ) : (
                 <Loading />
             )}
-        </DashboardTemplate>
+        </>
     );
 }
 

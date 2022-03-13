@@ -7,8 +7,6 @@ import React from "react";
 
 import { IIdParams, IPageProps } from "../../@types";
 import Loading from "../../components/Loading";
-import Sidebar from "../../components/Sidebar";
-import Topbar from "../../components/Topbar";
 import Track from "../../components/Track";
 import { useFetch } from "../../hooks/useFetch";
 import { Container } from "../../styles/pages/Artist";
@@ -26,9 +24,7 @@ export default function Playlist({ accessToken }: IPageProps) {
 
     return (
         <Container>
-            <Sidebar />
             <S.Banner>
-                <Topbar />
                 {data ? (
                     <S.Informations>
                         {data.images[0] && data.images[0].url ? (

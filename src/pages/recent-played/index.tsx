@@ -6,7 +6,6 @@ import React from "react";
 import { IPageProps } from "../../@types";
 import List from "../../components/List";
 import { useFetch } from "../../hooks/useFetch";
-import DashboardTemplate from "../../templates/Dashboard";
 import { testToken } from "../../utils/testToken";
 
 export default function RecentPlayed({ accessToken }: IPageProps) {
@@ -18,7 +17,7 @@ export default function RecentPlayed({ accessToken }: IPageProps) {
     if (error) console.log(error);
 
     return (
-        <DashboardTemplate>
+        <>
             {data && (
                 <List
                     recently={data.items}
@@ -26,7 +25,7 @@ export default function RecentPlayed({ accessToken }: IPageProps) {
                     title="Recently Played"
                 />
             )}
-        </DashboardTemplate>
+        </>
     );
 }
 

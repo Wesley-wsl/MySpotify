@@ -7,7 +7,6 @@ import { IPageProps } from "../../@types";
 import List from "../../components/List";
 import Loading from "../../components/Loading";
 import { useFetch } from "../../hooks/useFetch";
-import DashboardTemplate from "../../templates/Dashboard";
 import { testToken } from "../../utils/testToken";
 
 export default function Artists({ accessToken }: IPageProps) {
@@ -16,7 +15,7 @@ export default function Artists({ accessToken }: IPageProps) {
     if (error) console.log(error);
 
     return (
-        <DashboardTemplate>
+        <>
             {!data && <Loading />}
 
             {data && data?.artists?.items.length !== 0 && (
@@ -26,7 +25,7 @@ export default function Artists({ accessToken }: IPageProps) {
                     title="Artists that You Is Following"
                 />
             )}
-        </DashboardTemplate>
+        </>
     );
 }
 

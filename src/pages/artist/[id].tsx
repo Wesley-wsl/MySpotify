@@ -8,8 +8,6 @@ import React from "react";
 import { IIdParams, IPageProps } from "../../@types";
 import List from "../../components/List";
 import Loading from "../../components/Loading";
-import Sidebar from "../../components/Sidebar";
-import Topbar from "../../components/Topbar";
 import Track from "../../components/Track";
 import { useFetch } from "../../hooks/useFetch";
 import * as S from "../../styles/pages/Artist";
@@ -47,9 +45,7 @@ export default function Artist({ accessToken }: IPageProps) {
 
     return (
         <S.Container>
-            <Sidebar />
             <SS.Banner>
-                <Topbar />
                 {data ? (
                     <SS.Informations>
                         <Image
@@ -73,10 +69,10 @@ export default function Artist({ accessToken }: IPageProps) {
             </SS.Banner>
 
             {topTracks && topTracks.tracks.length !== 0 && (
-                <S.TopTracks>
+                <S.List>
                     <h2>Top Tracks</h2>
                     <Track data={topTracks.tracks} />
-                </S.TopTracks>
+                </S.List>
             )}
 
             {album && album.items.length !== 0 && (

@@ -1,14 +1,18 @@
 import { SessionProvider } from "next-auth/react";
 import { AppProps } from "next/app";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import NextNprogress from "nextjs-progressbar";
 
 import Player from "../components/Player";
 import { PlayerProvider } from "../contexts/Player";
 import { ThemeContextProvider } from "../contexts/Theme";
 import GlobalStyles from "../styles/GlobalStyle";
+import DashboardTemplate from "../templates/Dashboard";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+    const { asPath } = useRouter();
+
     return (
         <>
             <Head>
@@ -30,10 +34,17 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
             <SessionProvider session={session}>
                 <ThemeContextProvider>
                     <PlayerProvider>
-                        <>
-                            <Component {...pageProps} />
-                            <Player />
-                        </>
+                        {asPath === "/" ? (
+                            <>
+                                <Component {...pageProps} />
+                                <Player />
+                            </>
+                        ) : (
+                            <DashboardTemplate>
+                                <Component {...pageProps} />
+                                <Player />
+                            </DashboardTemplate>
+                        )}
                     </PlayerProvider>
                 </ThemeContextProvider>
             </SessionProvider>

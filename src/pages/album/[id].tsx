@@ -7,8 +7,6 @@ import React from "react";
 
 import { IIdParams, IPageProps } from "../../@types";
 import Loading from "../../components/Loading";
-import Sidebar from "../../components/Sidebar";
-import Topbar from "../../components/Topbar";
 import Track from "../../components/Track";
 import { useFetch } from "../../hooks/useFetch";
 import * as S from "../../styles/pages/Album";
@@ -25,9 +23,7 @@ export default function Album({ accessToken }: IPageProps) {
 
     return (
         <S.Container>
-            <Sidebar />
             <SS.Banner>
-                <Topbar />
                 {data ? (
                     <>
                         <SS.Informations>
