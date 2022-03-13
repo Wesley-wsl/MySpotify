@@ -16,10 +16,10 @@ export const Container = styled.section`
 
     table {
         border-collapse: collapse;
-        width: 80%;
+        max-width: 920px;
+        width: 96%;
         margin-bottom: 1rem;
         text-align: center;
-        margin-left: 10rem;
         overflow: hidden;
 
         tr {
@@ -85,7 +85,6 @@ export const Container = styled.section`
 
     @media (max-width: 508px) {
         table {
-            width: 70%;
             tr > th:nth-child(4),
             tr > td:nth-child(4) {
                 display: none;
@@ -111,16 +110,6 @@ export const Container = styled.section`
 
             tr {
                 grid-template-columns: 1fr;
-            }
-        }
-    }
-
-    @media (max-width: 341px) {
-        table {
-            width: auto;
-
-            tr {
-                margin: 0;
             }
         }
     }

@@ -5,12 +5,7 @@ import { ITheme } from "../@types";
 export const Banner = styled.section`
     background: ${({ theme }: ITheme) => theme.primary};
     width: 100%;
-    height: 33rem;
     position: relative;
-
-    > div:nth-child(1) {
-        margin-left: 10rem;
-    }
 
     img {
         border-radius: 2rem;
@@ -63,6 +58,7 @@ export const Informations = styled.div`
     }
 
     @media (max-width: 606px) {
+        margin-left: 1rem;
         > div > h1 {
             max-width: 20rem;
         }
@@ -72,8 +68,9 @@ export const Informations = styled.div`
         flex-direction: column;
         align-items: center;
         height: 20rem;
-        justify-content: center;
-        margin-left: 6rem;
+        justify-content: flex-start;
+        margin-left: 0rem;
+        margin-bottom: 2rem;
 
         div {
             margin-top: 0rem;
