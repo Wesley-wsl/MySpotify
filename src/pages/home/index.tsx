@@ -46,7 +46,7 @@ export default function Home({ accessToken }: IPageProps) {
 export const getServerSideProps: GetServerSideProps = async ctx => {
     const session = await getSession(ctx);
     const isValid = await testToken(`${session?.accessToken}`);
-
+    console.log(session);
     if (!session || !isValid) {
         destroyCookie(ctx, "next-auth.session-token");
 

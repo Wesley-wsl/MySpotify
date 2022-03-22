@@ -18,11 +18,12 @@ export default function Login() {
 }
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
-    const session = await getSession(ctx);
+    let session = await getSession(ctx);
     const isValid = await testToken(`${session?.accessToken}`);
 
     if (!isValid) {
         destroyCookie(ctx, "next-auth.session-token");
+        session = null;
     }
 
     if (session) {
