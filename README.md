@@ -8,7 +8,7 @@
 
 ## Application deploy with Vercel: :dash:
 
-> https://my-spotify-dlbx98mln-wesley-wsl.vercel.app
+> https://my-spotify-one.vercel.app
 
 **Note:** Unfortunately api spotify only allow that users authorized from developer access the application,then to test use the disponible account in page sigin.
 
