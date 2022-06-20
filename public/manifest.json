@@ -1,0 +1,16 @@
+{
+    "name": "MySpotify",
+    "short_name": "MySpotify",
+    "icons": [
+        {
+            "src": "/assets/spotify.svg",
+            "sizes": "192x192",
+            "type": "image/svg"
+        }
+    ],
+    "theme_color": "#040404",
+    "background_color": "#040404",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait"
+}
