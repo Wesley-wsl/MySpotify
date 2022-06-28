@@ -41,6 +41,7 @@ export const Container = styled.div<ISidebarContainer>`
     @media (max-width: 810px) {
         transform: ${({ isOpen }) =>
             isOpen ? "translateX(0)" : "translateX(-100%)"};
+        z-index: 999999;
     }
 `;
 
@@ -108,7 +109,7 @@ export const Mobile = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 0.5rem;
-    z-index: 100;
+    z-index: 9999;
     cursor: pointer;
 
     div {
@@ -118,17 +119,17 @@ export const Mobile = styled.div`
         margin-bottom: 0.5rem;
     }
 
-    @media (min-width: 810px) {
+    @media (min-width: 811px) {
         display: none;
     }
 `;
 
-export const Close = styled.div`
+export const Close = styled.div<ITheme>`
     font-size: 2rem;
     padding: 0.5rem;
     width: 90%;
-    background-color: ${({ theme }: ITheme) => theme.buttonHover};
-    color: ${({ theme }: ITheme) => theme.color};
+    background-color: ${({ theme }) => theme.buttonHover};
+    color: ${({ theme }) => theme.color};
     border-radius: 2rem;
     font-weight: 400;
     text-align: center;
@@ -138,7 +139,38 @@ export const Close = styled.div`
         transform: scale(110%);
     }
 
+    @media (min-width: 811px) {
+        display: none;
+    }
+`;
+
+export interface IOverlay {
+    isOpen: boolean;
+}
+
+export const Overlay = styled.div<IOverlay>`
+    display: ${({ isOpen }) => (isOpen ? "block" : "none")};
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #0008;
+    backdrop-filter: blur(0.2rem);
+    z-index: 99999;
+    animation: opacity 0.2s linear forwards;
+    transition: all 0.2s linear;
+
     @media (min-width: 810px) {
         display: none;
+    }
+
+    @keyframes opacity {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
     }
 `;

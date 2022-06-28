@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-import BrowseSvg from "../../assets/icons/browse.svg";
-import HomeSvg from "../../assets/icons/home.svg";
-import LikedSongsSvg from "../../assets/icons/liked-songs.svg";
+import { sidebarLibrary, sidebarNav } from "../../utils/constants";
 import * as S from "./styles";
 
 const Sidebar: React.FC = () => {
@@ -18,30 +16,16 @@ const Sidebar: React.FC = () => {
 
                 <S.MainNavigation>
                     <ul>
-                        <li onClick={() => setIsOpen(false)}>
-                            <Link href="/home">
-                                <a>
-                                    <HomeSvg aria-label="Home icon" />
-                                    Home
-                                </a>
-                            </Link>
-                        </li>
-                        <li onClick={() => setIsOpen(false)}>
-                            <Link href="/browse">
-                                <a>
-                                    <BrowseSvg aria-label="browse icon" />
-                                    Browse
-                                </a>
-                            </Link>
-                        </li>
-                        <li onClick={() => setIsOpen(false)}>
-                            <Link href="/liked-songs">
-                                <a>
-                                    <LikedSongsSvg aria-label="heart icon" />
-                                    Liked songs
-                                </a>
-                            </Link>
-                        </li>
+                        {sidebarNav.map(({ path, name, svg }, index) => (
+                            <li onClick={() => setIsOpen(false)} key={index}>
+                                <Link href={path}>
+                                    <a>
+                                        {svg}
+                                        {name}
+                                    </a>
+                                </Link>
+                            </li>
+                        ))}
                     </ul>
                 </S.MainNavigation>
 
@@ -49,21 +33,16 @@ const Sidebar: React.FC = () => {
 
                 <nav>
                     <S.ListStyle>
-                        <li onClick={() => setIsOpen(false)}>
-                            <Link href="/recent-played">Recent played</Link>
-                        </li>
-                        <li onClick={() => setIsOpen(false)}>
-                            <Link href="/playlists">Playlists</Link>
-                        </li>
-                        <li onClick={() => setIsOpen(false)}>
-                            <Link href="/albums">Albums</Link>
-                        </li>
-                        <li onClick={() => setIsOpen(false)}>
-                            <Link href="/artists">Artists</Link>
-                        </li>
+                        {sidebarLibrary.map(({ path, name }, index) => (
+                            <li onClick={() => setIsOpen(false)} key={index}>
+                                <Link href={path}>{name}</Link>
+                            </li>
+                        ))}
                     </S.ListStyle>
                 </nav>
             </S.Container>
+
+            <S.Overlay onClick={() => setIsOpen(!isOpen)} isOpen={isOpen} />
 
             {!isOpen && (
                 <S.Mobile onClick={() => setIsOpen(!isOpen)}>
