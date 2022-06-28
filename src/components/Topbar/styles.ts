@@ -117,7 +117,7 @@ export const Options = styled.ul`
     top: -0.5rem;
     left: -2rem;
     right: 3rem;
-    z-index: 2;
+    z-index: 9;
     min-height: 7rem;
     border-radius: 1rem;
     display: flex;
@@ -152,4 +152,14 @@ export const ProfileContainer = styled.div`
             opacity: 1;
         }
     }
+`;
+
+export const Overlay = styled.div`
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: transparent;
+    z-index: 8;
 `;

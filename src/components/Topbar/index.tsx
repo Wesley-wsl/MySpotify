@@ -73,9 +73,14 @@ const Topbar: React.FC = () => {
                 </S.Profile>
 
                 {openOptions && (
-                    <S.Options>
-                        <li onClick={() => signOut()}>Log out</li>
-                    </S.Options>
+                    <>
+                        <S.Options>
+                            <li onClick={() => signOut()}>Log out</li>
+                        </S.Options>
+                        <S.Overlay
+                            onClick={() => setOpenOptions(!openOptions)}
+                        />
+                    </>
                 )}
 
                 {lightMode ? (
