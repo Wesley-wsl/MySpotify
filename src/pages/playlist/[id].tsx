@@ -17,10 +17,7 @@ export default function Playlist({ accessToken }: IPageProps) {
     const router = useRouter();
     const { id }: IIdParams = router.query;
 
-    const { data, error } = useFetch(`/playlists/${id}`, accessToken);
-
-    if (error) console.log(error);
-    console.log(data);
+    const { data } = useFetch(`/playlists/${id}`, accessToken);
 
     return (
         <Container>

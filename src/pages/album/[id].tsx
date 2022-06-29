@@ -17,9 +17,7 @@ export default function Album({ accessToken }: IPageProps) {
     const router = useRouter();
     const { id }: IIdParams = router.query;
 
-    const { data, error } = useFetch(`albums/${id}`, `${accessToken}`);
-
-    if (error) console.log(error);
+    const { data } = useFetch(`albums/${id}`, `${accessToken}`);
 
     return (
         <S.Container>

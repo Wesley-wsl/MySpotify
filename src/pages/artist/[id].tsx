@@ -18,30 +18,27 @@ export default function Artist({ accessToken }: IPageProps) {
     const router = useRouter();
     const { id }: IIdParams = router.query;
 
-    const { data, error } = useFetch(`artists/${id}`, `${accessToken}`);
+    const { data } = useFetch(`artists/${id}`, `${accessToken}`);
 
-    const { data: topTracks, error: errorTopTracks } = useFetch(
+    const { data: topTracks } = useFetch(
         `artists/${id}/top-tracks?market=BR`,
         `${accessToken}`,
     );
 
-    const { data: single, error: errorSingle } = useFetch(
+    const { data: single } = useFetch(
         `artists/${id}/albums?album_type=single`,
         `${accessToken}`,
     );
 
-    const { data: album, error: errorAlbum } = useFetch(
+    const { data: album } = useFetch(
         `artists/${id}/albums?album_type=album`,
         `${accessToken}`,
     );
 
-    const { data: appears_on, error: errorAppears_on } = useFetch(
+    const { data: appears_on } = useFetch(
         `artists/${id}/albums?album_type=appears_on`,
         `${accessToken}`,
     );
-
-    if (error || errorTopTracks || errorSingle || errorAppears_on || errorAlbum)
-        console.log(error, errorTopTracks);
 
     return (
         <S.Container>

@@ -10,9 +10,7 @@ import { useFetch } from "../../hooks/useFetch";
 import { testToken } from "../../utils/testToken";
 
 export default function Artists({ accessToken }: IPageProps) {
-    const { data, error } = useFetch("me/following?type=artist", accessToken);
-
-    if (error) console.log(error);
+    const { data } = useFetch("me/following?type=artist", accessToken);
 
     return (
         <>

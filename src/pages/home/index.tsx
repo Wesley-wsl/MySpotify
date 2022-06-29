@@ -9,17 +9,15 @@ import { useFetch } from "../../hooks/useFetch";
 import { testToken } from "../../utils/testToken";
 
 export default function Home({ accessToken }: IPageProps) {
-    const { data: releases, error } = useFetch(
+    const { data: releases } = useFetch(
         "browse/new-releases?limit=12",
         `${accessToken}`,
     );
 
-    const { data: recentlyPlayed, error: recentlyError } = useFetch(
+    const { data: recentlyPlayed } = useFetch(
         "me/player/recently-played?limit=4",
         `${accessToken}`,
     );
-
-    if (error || recentlyError) console.log(error, recentlyError);
 
     return (
         <>

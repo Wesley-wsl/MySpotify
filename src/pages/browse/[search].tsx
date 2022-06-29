@@ -14,12 +14,10 @@ export default function BrowseSearch({ accessToken }: IPageProps) {
     const router = useRouter();
     const { search }: ISearchParams = router.query;
 
-    const { data, error } = useFetch(
+    const { data } = useFetch(
         `/search?q=${search}&type=artist,album,playlist&limit=12`,
         accessToken,
     );
-
-    if (error) console.log(error);
 
     return (
         <>

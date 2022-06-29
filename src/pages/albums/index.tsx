@@ -9,9 +9,7 @@ import { useFetch } from "../../hooks/useFetch";
 import { testToken } from "../../utils/testToken";
 
 export default function Albums({ accessToken }: IPageProps) {
-    const { data, error } = useFetch("me/albums", `${accessToken}`);
-
-    if (error) console.log(error);
+    const { data } = useFetch("me/albums", `${accessToken}`);
 
     return (
         <>

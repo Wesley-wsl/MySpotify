@@ -9,12 +9,7 @@ import { useFetch } from "../../hooks/useFetch";
 import { testToken } from "../../utils/testToken";
 
 export default function RecentPlayed({ accessToken }: IPageProps) {
-    const { data, error } = useFetch(
-        "me/player/recently-played",
-        `${accessToken}`,
-    );
-
-    if (error) console.log(error);
+    const { data } = useFetch("me/player/recently-played", `${accessToken}`);
 
     return (
         <>
