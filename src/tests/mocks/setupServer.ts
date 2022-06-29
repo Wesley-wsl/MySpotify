@@ -40,6 +40,31 @@ const handlers = [
             }),
         );
     }),
+    rest.get(`${baseURL}playlists/*`, (req, res, ctx) => {
+        return res(
+            ctx.status(200),
+            ctx.json({
+                images: [{ url: "/image.png" }],
+                name: "blackbear",
+                followers: { total: 900 },
+                tracks: [
+                    {
+                        items: {
+                            track: {
+                                name: "Tuono",
+                                preview_url: "/url.mp4",
+                                id: "2",
+                                duration_ms: 2000,
+                                artists: [{ name: "Tuono" }],
+                            },
+                            images: [{ url: "/image.png" }],
+                            name: "blackbear",
+                            artists: ["blackebar"],
+                        },
+                    },
+                ],
+            }),
+        );
+    }),
 ];
-
 export const server = setupServer(...handlers);
