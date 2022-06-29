@@ -78,15 +78,24 @@ const Topbar: React.FC = () => {
                             <li onClick={() => signOut()}>Log out</li>
                         </S.Options>
                         <S.Overlay
+                            data-testid="overlay"
                             onClick={() => setOpenOptions(!openOptions)}
                         />
                     </>
                 )}
 
                 {lightMode ? (
-                    <MoonSvg onClick={changeTheme} className="moon" />
+                    <MoonSvg
+                        onClick={changeTheme}
+                        className="moon"
+                        aria-label="Moon for change to dark mode."
+                    />
                 ) : (
-                    <SunSvg onClick={changeTheme} className="sun" />
+                    <SunSvg
+                        onClick={changeTheme}
+                        className="sun"
+                        aria-label="Sun for change to light mode."
+                    />
                 )}
             </S.ProfileContainer>
         </S.Container>
