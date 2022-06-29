@@ -8,8 +8,20 @@ import { ThemeContext } from "../../contexts/Theme";
 
 jest.mock("next-auth/react", () => {
     return {
-        useSession() {
-            return {
+        useSession: jest
+            .fn()
+            .mockResolvedValueOnce({
+                data: {
+                    expires: "",
+                    accessToken: "",
+                    user: {
+                        name: "Jorkis",
+                        email: "jorkis@gmail.com",
+                        image: null,
+                    },
+                },
+            })
+            .mockReturnValue({
                 data: {
                     expires: "",
                     accessToken: "",
@@ -19,8 +31,7 @@ jest.mock("next-auth/react", () => {
                         image: "https://i.scdn.co/image/ab6775700000ee8518fe447fac315f236ce0bb52",
                     },
                 },
-            };
-        },
+            }),
         signOut: jest.fn(),
     };
 });
@@ -33,6 +44,13 @@ const signOutMocked = jest.mocked(signOut);
 const routerMocked = jest.mocked(Router);
 
 describe("Topbar component", () => {
+    it("Should be able to render a default image if user don't have a image.", () => {
+        render(<Topbar />);
+
+        const profileIcon = screen.getByLabelText("Profile icon");
+        expect(profileIcon).toBeInTheDocument();
+    });
+
     it("Should have a input for search", () => {
         render(<Topbar />);
 
