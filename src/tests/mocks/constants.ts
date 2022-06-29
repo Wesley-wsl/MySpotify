@@ -3,7 +3,9 @@ import {
     IArtists,
     IMyAlbums,
     IPlaylists,
+    IPlaylistTracks,
     IRecentlyPlayed,
+    ITracks,
 } from "../../@types";
 
 export const albumList: IAlbumData[] = [
@@ -96,3 +98,25 @@ export const recentlyList: IRecentlyPlayed[] = [
         },
     },
 ];
+
+export const playlisTrack = [
+    {
+        track: {
+            name: "blackbear",
+            preview_url: "preview",
+            id: "id",
+            duration_ms: 2000,
+            artists: [{ name: "any" }],
+        },
+    },
+] as IPlaylistTracks[];
+
+export const tracksData = [
+    {
+        name: "blackbear",
+        preview_url: "preview",
+        id: "id",
+        duration_ms: 2000,
+        artists: [{ name: "any" }],
+    },
+] as ITracks[];
