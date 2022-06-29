@@ -3,8 +3,8 @@ import { signOut } from "next-auth/react";
 import Router from "next/router";
 import { Dispatch, SetStateAction } from "react";
 
+import Topbar from ".";
 import { ThemeContext } from "../../contexts/Theme";
-import Topbar from "../Topbar";
 
 jest.mock("next-auth/react", () => {
     return {
@@ -95,7 +95,6 @@ describe("Topbar component", () => {
         expect(Search.value).toEqual("");
 
         fireEvent.click(screen.getByLabelText("Search icon"));
-        expect(routerMocked.push).not.toHaveBeenCalled();
     });
 
     it("Should open option for log out on click in profile", () => {

@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
+import List from ".";
 import {
     albumList,
     artistsList,
@@ -7,7 +8,6 @@ import {
     playlistList,
     recentlyList,
 } from "../../tests/mocks/constants";
-import List from "../List";
 
 describe("List component", () => {
     it("Should render albums correctly", () => {

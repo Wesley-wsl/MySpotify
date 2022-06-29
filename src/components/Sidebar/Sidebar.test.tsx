@@ -1,6 +1,6 @@
 import { screen, render, fireEvent } from "@testing-library/react";
 
-import Sidebar from "../Sidebar";
+import Sidebar from ".";
 
 jest.mock("next/link", () => {
     return ({ children }: Element) => {

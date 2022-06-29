@@ -1,8 +1,8 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
+import Track from ".";
 import { PlayerProvider } from "../../contexts/Player";
 import { playlisTrack, tracksData } from "../../tests/mocks/constants";
-import Track from "../Track";
 
 describe("Track component", () => {
     it("Should render the Track component", () => {

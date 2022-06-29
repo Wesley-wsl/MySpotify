@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import Player from "../Player";
+import Player from ".";
 
 describe("Player component", () => {
     it("Should render the Player component correctly", () => {

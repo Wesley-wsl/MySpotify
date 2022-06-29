@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import Card from "../Card";
+import Card from ".";
 
 const cardData = {
     name: "blackbear4",
