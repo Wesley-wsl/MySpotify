@@ -1,5 +1,7 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 
+import { PlayerProvider } from "../../contexts/Player";
+import { playlisTrack, tracksData } from "../../tests/mocks/constants";
 import Track from "../Track";
 
 describe("Track component", () => {
@@ -10,40 +12,50 @@ describe("Track component", () => {
     });
 
     it("Should render the playlist informations", () => {
-        render(
-            <Track
-                playlist={[
-                    {
-                        track: {
-                            name: "blackbear",
-                            preview_url: "preview",
-                            id: "id",
-                            duration_ms: 2000,
-                            artists: [{ name: "any" }],
-                        },
-                    },
-                ]}
-            />,
-        );
+        render(<Track playlist={playlisTrack} />);
 
         expect(screen.getByText("blackbear")).toBeInTheDocument();
     });
 
     it("Should render the data informations", () => {
-        render(
-            <Track
-                data={[
-                    {
-                        name: "blackbear",
-                        preview_url: "preview",
-                        id: "id",
-                        duration_ms: 2000,
-                        artists: [{ name: "any" }],
-                    },
-                ]}
-            />,
-        );
+        render(<Track data={tracksData} />);
 
         expect(screen.getByText("blackbear")).toBeInTheDocument();
+    });
+
+    it("should be able to play a music coming data.", () => {
+        render(
+            <PlayerProvider>
+                <Track data={tracksData} />
+            </PlayerProvider>,
+        );
+
+        const play = screen.getByLabelText("Play");
+
+        expect(screen.getByText("blackbear")).toBeInTheDocument();
+        expect(play).toBeInTheDocument();
+
+        fireEvent.click(play);
+
+        expect(screen.queryByLabelText("Play")).not.toBeInTheDocument();
+        expect(screen.getByLabelText("Pause")).toBeInTheDocument();
+    });
+
+    it("should be able to play a music coming playlist.", () => {
+        render(
+            <PlayerProvider>
+                <Track playlist={playlisTrack} />
+            </PlayerProvider>,
+        );
+
+        const play = screen.getByLabelText("Play");
+
+        expect(screen.getByText("blackbear")).toBeInTheDocument();
+        expect(play).toBeInTheDocument();
+
+        fireEvent.click(play);
+
+        expect(play).not.toBeInTheDocument();
+        expect(screen.getByLabelText("Pause")).toBeInTheDocument();
     });
 });
