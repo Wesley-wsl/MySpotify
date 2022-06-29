@@ -1,6 +1,6 @@
 import { screen, render } from "@testing-library/react";
 
-import Album from "../pages/album/[id]";
+import Album from "../../pages/album/[id]";
 
 jest.mock("next-auth/react", () => {
     return {
