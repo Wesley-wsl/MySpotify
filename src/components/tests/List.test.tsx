@@ -1,58 +1,24 @@
 import { render, screen } from "@testing-library/react";
 
+import {
+    albumList,
+    artistsList,
+    myAlbumList,
+    playlistList,
+    recentlyList,
+} from "../../tests/mocks/constants";
 import List from "../List";
 
 describe("List component", () => {
     it("Should render albums correctly", () => {
-        render(
-            <List
-                title="Albums"
-                album={[
-                    {
-                        artists: [{ name: "blackbear" }],
-                        name: "blackbear",
-                        release_date: "release",
-                        images: [{ url: "", height: 200, width: 200 }],
-                        id: "id",
-
-                        tracks: {
-                            items: [
-                                {
-                                    name: "preview",
-                                    preview_url: "preview_url",
-                                    id: "preview",
-                                    duration_ms: 2000,
-                                    artists: [{ name: "preview" }],
-                                },
-                            ],
-                        },
-                    },
-                ]}
-                type={"Albums"}
-            />,
-        );
+        render(<List title="Albums" album={albumList} type={"Albums"} />);
 
         expect(screen.getByText("Albums")).toBeInTheDocument();
         expect(screen.getByText("blackbear")).toBeInTheDocument();
     });
 
     it("Should render artists correctly", () => {
-        render(
-            <List
-                title="Artists"
-                artists={[
-                    {
-                        followers: { total: 100 },
-                        images: [{ url: "" }],
-                        name: "blackbear",
-                        genres: ["songs"],
-                        id: "id",
-                        uri: "uri",
-                    },
-                ]}
-                type={"Artists"}
-            />,
-        );
+        render(<List title="Artists" artists={artistsList} type={"Artists"} />);
 
         expect(screen.getByText("Artists")).toBeInTheDocument();
         expect(screen.getByText("blackbear")).toBeInTheDocument();
@@ -60,33 +26,7 @@ describe("List component", () => {
 
     it("Should render myAlbums correctly", () => {
         render(
-            <List
-                title="myAlbum"
-                myAlbum={[
-                    {
-                        album: {
-                            artists: [{ name: "blackbear" }],
-                            name: "blackbear",
-                            release_date: "release",
-                            images: [{ url: "", height: 200, width: 200 }],
-                            id: "id",
-
-                            tracks: {
-                                items: [
-                                    {
-                                        name: "preview",
-                                        preview_url: "preview_url",
-                                        id: "preview",
-                                        duration_ms: 2000,
-                                        artists: [{ name: "preview" }],
-                                    },
-                                ],
-                            },
-                        },
-                    },
-                ]}
-                type={"MyAlbums"}
-            />,
+            <List title="myAlbum" myAlbum={myAlbumList} type={"MyAlbums"} />,
         );
 
         expect(screen.getByText("myAlbum")).toBeInTheDocument();
@@ -97,24 +37,7 @@ describe("List component", () => {
         render(
             <List
                 title="playlist"
-                playlist={[
-                    {
-                        name: "blackbear",
-                        images: [{ url: "", height: 200, width: 200 }],
-                        id: "id",
-                        uri: "uri",
-                        tracks: [
-                            {
-                                name: "cool",
-                                preview_url: "preview_url",
-                                id: "id",
-                                duration_ms: 2000,
-                                artists: [{ name: "blackbear" }],
-                            },
-                        ],
-                        owner: { display_name: "blackbear" },
-                    },
-                ]}
+                playlist={playlistList}
                 type={"Playlists"}
             />,
         );
@@ -125,27 +48,26 @@ describe("List component", () => {
 
     it("Should render recently played correctly", () => {
         render(
-            <List
-                title="recently"
-                recently={[
-                    {
-                        track: {
-                            album: {
-                                id: "id",
-                                name: "blackbear",
-                                artists: [{ name: "blackbear" }],
-                                images: [{ url: "" }],
-                            },
-                            name: "blackbear",
-                            artists: ["blackbear"],
-                        },
-                    },
-                ]}
-                type={"Albums"}
-            />,
+            <List title="recently" recently={recentlyList} type={"Albums"} />,
         );
 
         expect(screen.getByText("recently")).toBeInTheDocument();
         expect(screen.getByText("blackbear")).toBeInTheDocument();
+    });
+
+    it("Should be able to render a default message if don't have myAlbums.", () => {
+        render(<List title="myAlbum" myAlbum={[]} type={"MyAlbums"} />);
+
+        expect(
+            screen.getByText("You don&apos;t have albums saved."),
+        ).toBeInTheDocument();
+    });
+
+    it("Should be able to render a default message if don't have artists.", () => {
+        render(<List title="Artists" artists={[]} type={"Artists"} />);
+
+        expect(
+            screen.getByText("You don&apos;t have albums saved."),
+        ).toBeInTheDocument();
     });
 });
