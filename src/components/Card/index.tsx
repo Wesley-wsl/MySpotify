@@ -20,7 +20,7 @@ const Card: React.FC<ICard> = ({ data, type }) => {
             {data && (
                 <Link href={`/${path}/${data.id}`} passHref>
                     <S.Container>
-                        {data.images[0] && data.images[0].url && data ? (
+                        {data?.images[0] && data?.images[0].url ? (
                             <Image
                                 src={data.images[0]?.url}
                                 width={200}
@@ -28,7 +28,10 @@ const Card: React.FC<ICard> = ({ data, type }) => {
                                 alt={`Album ${data.name} image`}
                             />
                         ) : (
-                            <div className="FakeImage" />
+                            <div
+                                className="FakeImage"
+                                data-testid="fakeImage"
+                            />
                         )}
 
                         <S.Title>{data.name}</S.Title>
