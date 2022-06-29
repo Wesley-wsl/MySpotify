@@ -95,7 +95,7 @@ export const Label = styled.p`
     font-weight: 200;
 `;
 
-export const Mobile = styled.div`
+export const Mobile = styled.button`
     position: fixed;
     top: 0rem;
     bottom: 0;
@@ -124,7 +124,7 @@ export const Mobile = styled.div`
     }
 `;
 
-export const Close = styled.div<ITheme>`
+export const Close = styled.button<ITheme>`
     font-size: 2rem;
     padding: 0.5rem;
     width: 90%;
@@ -144,12 +144,7 @@ export const Close = styled.div<ITheme>`
     }
 `;
 
-export interface IOverlay {
-    isOpen: boolean;
-}
-
-export const Overlay = styled.div<IOverlay>`
-    display: ${({ isOpen }) => (isOpen ? "block" : "none")};
+export const Overlay = styled.div`
     position: fixed;
     top: 0;
     right: 0;

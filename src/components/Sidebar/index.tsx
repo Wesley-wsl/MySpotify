@@ -11,7 +11,12 @@ const Sidebar: React.FC = () => {
         <>
             <S.Container isOpen={isOpen}>
                 {isOpen && (
-                    <S.Close onClick={() => setIsOpen(false)}>X</S.Close>
+                    <S.Close
+                        onClick={() => setIsOpen(false)}
+                        aria-label="Close sidebar"
+                    >
+                        X
+                    </S.Close>
                 )}
 
                 <S.MainNavigation>
@@ -42,10 +47,18 @@ const Sidebar: React.FC = () => {
                 </nav>
             </S.Container>
 
-            <S.Overlay onClick={() => setIsOpen(!isOpen)} isOpen={isOpen} />
+            {isOpen && (
+                <S.Overlay
+                    onClick={() => setIsOpen(!isOpen)}
+                    data-testid="overlay"
+                />
+            )}
 
             {!isOpen && (
-                <S.Mobile onClick={() => setIsOpen(!isOpen)}>
+                <S.Mobile
+                    onClick={() => setIsOpen(!isOpen)}
+                    aria-label="Open sidebar"
+                >
                     <div />
                     <div />
                     <div />
