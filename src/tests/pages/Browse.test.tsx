@@ -1,7 +1,7 @@
 import { screen, render } from "@testing-library/react";
 import { GetServerSidePropsContext } from "next";
 
-import BrowseSearch, { getServerSideProps } from "../../pages/browse/[search]";
+import BrowseSearch, { getServerSideProps } from "../../pages/browse";
 import DashboardTemplate from "../../templates/Dashboard";
 
 jest.mock("next-auth/react", () => {
@@ -52,7 +52,7 @@ describe("Browse page", () => {
     it("Should render Browse page", () => {
         render(
             <DashboardTemplate>
-                <BrowseSearch accessToken="accessToken" />
+                <BrowseSearch />
             </DashboardTemplate>,
         );
 
@@ -71,9 +71,7 @@ describe("Browse page", () => {
         );
 
         expect(response).toEqual({
-            props: {
-                accessToken: "accessToken",
-            },
+            props: {},
         });
     });
 
