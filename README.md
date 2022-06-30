@@ -41,7 +41,9 @@ MySpotify - An application that make using Spotify Web Api to fetch data and sho
 <li><a href="https://www.npmjs.com/package/nookies">Nookies</a></li>
 <li><a href="https://www.npmjs.com/package/nextjs-progressbar">Nextjs-progressbar</a></li>
 <li><a href="https://www.npmjs.com/package/react-h5-audio-player">react-h5-audio-player</a></li>
+<li><a href="https://testing-library.com">React Testing Library</a></li>
 <li><a href="https://jestjs.io">Jest</a></li>
+<li><a href="https://www.npmjs.com/package/next-pwa">Next-PWA</a></li>
 <li><a href="https://eslint.org">Eslint</a></li>
 <li><a href="https://prettier.io">Prettier</a></li>
 <li><a href="https://editorconfig.org">EditorConfig</a></li>
